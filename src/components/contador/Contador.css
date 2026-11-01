@@ -1,0 +1,33 @@
+.carrito-producto-cantidad {
+  display: flex;
+  padding: 2px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 3px;
+  background: var(--Terciario, #EBEBDF);
+}
+
+.contador {
+  color: var(--Primario, #E9631A);
+  text-align: center;
+  width: 21px;
+  /* flex-shrink: 0; */
+}
+
+.contador-input {
+  color: #E9631A;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: transparent;
+  width: 26px;
+}
+
+/* para quitar flechas de number en Chrome */
+.contador-input::-webkit-inner-spin-button,
+.contador-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Acumin Variable Concept";
+  src: url('/fonts/Acumin-Variable-Concept.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+:root,
+[data-variable-collection-mode="mode-1"] {
+  /* 🎨 Colores */
+  --color-primario: #e9631a;
+  --color-secundario: #f4bd03;
+  --color-terciario: #ebebdf;
+
+  /* 🎨 Colores utilitarios */
+  --color-blanco: #ffffff;
+  --color-negro: #000000;
+
+
+  /* 🔤 Fuentes base */
+  --font-montserrat-regular: 'Montserrat-Regular', sans-serif;
+  --font-montserrat-medium: 'Montserrat-Medium', sans-serif;
+  --font-montserrat-semibold: 'Montserrat-SemiBold', sans-serif;
+  --font-acumin-light: 'AcuminVariableConcept', sans-serif;
+
+  /* 📐 Tamaños base */
+  --fs-xxs: 12px;
+  --fs-xs: 15px;
+  --fs-sm: 16px;
+  --fs-md: 22px;
+  --fs-lg: 29px;
+  --fs-xl: 34px;
+  --fs-2xl: 45px;
+  --fs-3xl: 64px;
+
+  /* 📱 Mobile */
+  --Titulo: var(--font-montserrat-semibold) var(--fs-xl);
+  --Subtitulo: var(--font-montserrat-semibold) var(--fs-lg);
+  --Producto: var(--font-montserrat-medium) var(--fs-md);
+  --Body: var(--font-acumin-light) var(--fs-sm);
+  --Descripcion: var(--font-montserrat-regular) var(--fs-xxs);
+  --Field: var(--font-montserrat-medium) var(--fs-xs);
+
+  /* 🖥️ Desktop */
+  --Titulo: var(--font-montserrat-semibold) var(--fs-3xl);
+  --Subtitulo: var(--font-montserrat-semibold) var(--fs-2xl);
+  --Producto: var(--font-montserrat-medium) var(--fs-lg);
+  --Body: var(--font-acumin-light) var(--fs-md);
+  --Descripcion: var(--font-montserrat-regular) var(--fs-sm);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  /* Oculta la barra */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  padding-top: 76px;
+  /* altura de la barra de navegación */
+}
+
+img {
+  display: block;
+  /* elimina el espacio de baseline */
+}
+
+/* Fuentes principales */
+
+.Body {
+  font-family: "Acumin Variable Concept";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+
+.Titulo {
+  /* Titulo */
+  font-family: 'Montserrat-SemiBold';
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.Subtitulo {
+  /* Subtitulo */
+  font-family: 'Montserrat-SemiBold';
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.Producto {
+  /* Producto */
+  font-family: 'Montserrat-Medium';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Field {
+  font-family: 'Montserrat-Medium';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Descripcion {
+  font-family: 'Montserrat-Regular';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.Body-d {
+  /* Body */
+  font-family: "Acumin Variable Concept";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  padding-left: 3px;
+}
+
+/* Fuentes auxiliares */
+
+.Titulo-card {
+  font-family: 'Montserrat-Regular';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+
+
+.M-card-overlay {
+  font-family: 'Montserrat-Regular';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.M-Aux-blanco {
+  color: #FFF !important;
+  text-align: center;
+  align-self: stretch;
+}
+
+
+
+.M-Aux-negro {
+  color: #000;
+  text-align: center;
+  align-self: stretch;
+}
+
+
+.M-Aux-transparent {
+  opacity: 0.5;
+}
+
+/* Fuentes desktop */
+
+.Subtitulo {
+  color: #000;
+  text-align: center;
+  font-family: 'Montserrat-SemiBold';
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.Body {
+  color: #000;
+  text-align: center;
+  font-family: "Acumin Variable Concept";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+
+.center {
+  text-align: center;
+}
+
+.opacity-05 {
+  opacity: 0.5;
+}
+
+
+p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+.btn-primario {
+  display: inline-flex;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 3px;
+  background: var(--Primario, #E9631A);
+  border: none;
+}
+
+@media (min-width: 824px) {
+  .Titulo {
+    text-align: center;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .Titulo-card {
+    font-family: 'Montserrat-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .Subtitulo {
+    font-family: 'Montserrat-Medium';
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .Producto {
+    font-family: 'Montserrat-Medium';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .Body {
+    text-align: center;
+    font-family: "Acumin Variable Concept";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+  }
+
+  .Descripcion {
+    font-family: 'Montserrat-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .M-Body {
+    font-family: "Acumin Variable Concept";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+  }
+
+  .M-card-overlay {
+    font-family: 'Montserrat-Regular';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

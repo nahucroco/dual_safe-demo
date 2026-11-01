@@ -1,0 +1,197 @@
+:root{
+  --nav-h: 56px;            /* ajustá si tenés navbar fija */
+  --footer-h: 110px;        /* alto aprox. del footer fijo en mobile */
+}
+
+/* ===== WRAPPER ===== */
+.Carrito {
+  background: linear-gradient(170deg, #FFF1E9 1.24%, #FFA774 98.76%);
+  min-height: 100dvh;             /* ocupa toda la altura disponible */
+  display: flex;
+  flex-direction: column;          /* permite empujar el footer al fondo */
+  align-items: center;
+  box-sizing: border-box;
+  padding: 30px 16px;
+  height: calc(100dvh + var(--footer-h));
+}
+
+/* ===== CONTENEDOR INTERNO (máximo y centrado) ===== */
+.container {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  /* clave: ocupa el espacio para empujar el footer */
+  flex: 1 0 auto;
+}
+
+/* ===== HEADER ===== */
+.carrito-header {
+  display: grid;
+  gap: 12px;
+}
+
+.carrito-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carrito-title .Subtitulo {
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* bloque informativo con icono + texto */
+.carrito-info {
+  display: flex;
+  align-items: center;
+}
+.carrito-info .span-info {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* iconos consistentes */
+.carrito-title img,
+.carrito-info img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: block;
+}
+
+.span-info{ max-width: 300px; }
+
+/* ===== BOX ===== */
+.carrito-box{
+  display: inline-flex;
+  padding: 20px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 5px;
+  background: #f9f9f680;
+}
+
+.carrito-info-cantidad{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+/* ===== PRODUCTO ===== */
+.carrito-producto{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carrito-producto-img{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 10px;
+  aspect-ratio: 1 / 1;
+}
+.carrito-producto-img img{
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.carrito-producto-info-container{
+  display: flex;
+  width: 210px; /* si necesitás más ancho, cambiá a 100% */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.carrito-producto-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.carrito-producto-nombre{
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.carrito-producto-materiales{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.carrito-producto-etiquetas{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+/* ===== FOOTER AL PIE (no fijo) ===== */
+.carrito-footer{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 960px;             /* centra en desktop */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  padding: 20px 16px 25px 16px;
+  background: #FFF;
+  box-shadow: 0 -6px 18px rgba(0,0,0,.04);
+  z-index: 3;                /* asegura que quede arriba */
+}
+
+
+.carrito-footer-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.carrito-producto-cantidad{
+  background: var(--Terciario, #EBEBDF);
+}
+/* ===== OPCIONAL: barra fija en mobile =====
+   Activalo si querés que el footer quede siempre visible en pantallas chicas */
+
+/* Quita subrayado y mantiene color heredado en links dentro del carrito */
+.carrito-producto a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Asegurá que tampoco aparezca en hover/visited */
+.carrito-producto a:link,
+.carrito-producto a:visited,
+.carrito-producto a:hover,
+.carrito-producto a:active {
+  text-decoration: none;
+  color: inherit;
+}
+.carrito-cantidad{
+  display: flex;
+align-items: center;
+gap: 5px;
+}
+

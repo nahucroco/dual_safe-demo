@@ -1,0 +1,255 @@
+.Footer {
+  display: flex;
+  width: 100%;
+  padding: 60px 16px;
+  justify-content: center;
+  background: var(--Primario, #E9631A);
+  color: white;
+  box-sizing: border-box;
+}
+
+.Footer .Footer-content.mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.Footer .Footer-content.desktop {
+  display: none;
+}
+
+.Footer .Body {
+  font-size: 15px;
+  text-align: left;
+}
+
+.Footer p {
+  color: #fff;
+}
+
+.Footer-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: space-between;
+}
+
+.Footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* 👈 izquierda en mobile */
+  gap: 30px;
+  width: 100%;
+}
+
+.Footer-content.mobile .Footer-logo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 381px;
+  text-align: left;
+}
+
+.Footer-content.mobile .Footer-logo-info .container-1 {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Footer-logo-info p {
+  text-align: left;
+}
+
+
+.Footer-logo-info img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.Footer-content.mobile .Footer-logo-info .container-2 {
+  flex-direction: row;
+  display: flex;
+}
+
+/* Bloque menú + contacto */
+.Footer-content.mobile .Footer-locate-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  max-width: 448px;
+  gap: 20px;
+  align-items: center;
+}
+
+.Footer-locate-info .container-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.Footer-locate-info .container-2 {
+  display: flex;
+  flex-direction: row;
+  gap: .3rem;
+  align-items: center;
+}
+
+.Footer-locate-info .container-2 a {
+  color: var(--Fondo, #FCF9F4);
+  font-family: "General Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.Footer-link,
+.Footer-locate {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 10px;
+}
+
+.Footer-links .Field {
+  text-decoration: none;
+  color: #fff;
+}
+
+.direccion {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-direction: row;
+}
+
+.direccion img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Copy abajo */
+.Footer-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  opacity: 0.95;
+  font-size: 0.9rem;
+}
+
+.Footer-madeby {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.Footer-madeby-link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* --------- Desktop --------- */
+
+@media (min-width: 824px) {
+  .Footer{
+    padding: 60px 32px;
+  }
+
+  .Footer .Footer-content.mobile {
+    display: none;
+  }
+
+  .Footer .Footer-content.desktop {
+    display: flex;
+  }
+
+  .Footer-info {
+    flex-direction: row;
+    /* logo izq, menú+contacto der */
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .Footer-copy {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+  }
+
+  .Footer-logo-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 100px;
+    max-width: 381px;
+  }
+
+  .Footer-logo-info div{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Footer-locate-info{
+    justify-content: space-between;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 448px;
+  }
+
+  .Footer-locate-info .container-2{
+    justify-content: right;
+  }
+}
+
+
+.fabricando,
+.certificaciones {
+  text-align: left !important;
+  color: #fff !important;
+  font-size: 0.95rem;
+}
+
+
+.direccion a{
+  text-decoration: underline !important;
+  color: #fff;
+}
+
+.Footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.Footer-links a:hover {
+  color: #FFD999;
+}
+
+.direccion a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.direccion a:hover {
+  color: #FFD999;
+}

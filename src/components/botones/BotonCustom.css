@@ -1,0 +1,190 @@
+/* Base */
+/* Quita el highlight azul/gris al tocar en iOS/Android */
+.boton {
+  -webkit-tap-highlight-color: transparent; /* iOS/Android */
+  -webkit-appearance: none;                 /* iOS */
+  appearance: none;
+}
+
+/* Forzá el color y la decoración en TODOS los estados de link */
+.boton:link,
+.boton:visited,
+.boton:hover,
+.boton:active,
+.boton:focus {
+  color: inherit;
+  background: inherit;
+  text-decoration: none;
+}
+
+/* Mantené accesibilidad con focus visible propio */
+.boton:focus { outline: none; }               /* quita el feo del navegador */
+.boton:focus-visible {
+  outline: 2px solid var(--color-secundario);
+  outline-offset: 2px;
+}
+
+/* (Opcional) Evita menú de “tocar y mantener” en iOS si te molesta */
+.boton {
+  -webkit-touch-callout: none;
+}
+
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+  background: transparent;        /* Las variantes definen el fondo/color */
+  color: inherit;
+
+  text-decoration: none;
+  user-select: none;
+}
+
+/* Tamaños */
+.boton.size-B { padding: 12px 20px; }
+.boton.size-M { padding: 10.5px 20px; }
+.boton.size-S { padding: 5px 5px; }
+.boton.size-E { padding: 13px; } /* icon-only */
+.boton.size-ES { padding: 10px; } /* icon-only */
+
+/* Variantes */
+.boton.var-primario {
+  background-color: var(--color-primario);
+  color: #fff;
+}
+
+.boton.var-secundario {
+  background-color: var(--color-terciario);
+  color: var(--color-primario);
+}
+
+.boton.var-extra {
+  background: unset;
+  color: var(--color-primario);
+  /* En tu versión original usabas "unset" para centrar/alinear.
+     Si preferís centrar, podés borrar estas dos líneas. */
+  justify-content: unset;
+  align-items: unset;
+}
+
+/* Ícono */
+.boton .icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+/* Filtros por variante (para imágenes raster/SVG sin currentColor) */
+.boton.var-primario .icon {
+  filter: invert(1);
+}
+.boton.var-secundario .icon {
+  filter: invert(61%) sepia(57%) saturate(5871%) hue-rotate(352deg) brightness(95%) contrast(93%);  /* generado por https://codepen.io/sosuke/pen/Pjoqqp - Solo funciona con svg negros */
+}
+.boton.var-extra .icon {
+  filter: none;
+}
+
+/* Label */
+.boton .label {
+  font-family: var(--font-montserrat-medium);
+  font-size: var(--fs-xs);
+  line-height: 18px;
+  height: 18px;
+}
+
+/* Hover “óptico” opcional para la variante extra (cuando hover = "si") */
+.boton.hover-si.var-extra:hover {
+  box-shadow: inset 0 0 0 2px var(--color-secundario);
+}
+
+/* Estado disabled */
+.boton:disabled {
+  cursor: not-allowed;
+  opacity: 0;
+  box-shadow: none; /* por las dudas si quedó hover */
+}
+
+/* Accesibilidad: foco visible */
+.boton:focus-visible {
+  outline: 2px solid var(--color-secundario);
+  outline-offset: 2px;
+}
+
+/* Botón como contenedor del visor */
+.boton-custom.icon-btn { display:inline-flex; align-items:center; justify-content:center; }
+
+/* Ventana de 24x24 que “recorta” el track */
+.icon-viewport {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+.icon-track {
+  width: 48px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  transition: transform 300ms ease-out;
+  will-change: transform;
+}
+
+.icon-track img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: block;
+  transition: none !important;
+}
+
+/* Ahora to-menu es el segundo icono (hamburguesa), to-x es el primero */
+.icon-track.to-menu { transform: translateX(-24px); } /* muestra hamburguesa */
+.icon-track.to-x    { transform: translateX(0); }     /* muestra la X */
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-track { transition-duration: 1ms; }
+}
+
+
+/* Reseteo de hover nativo */
+/* Estado disabled nativo (solo <button disabled>) */
+.boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* Estado disabled para <a> o <Link> (no tienen :disabled) */
+.boton.is-disabled {
+  cursor: not-allowed;
+  background: #A2A2A2;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* Evitar “hover” cuando está disabled */
+.boton.is-disabled:hover,
+.boton.is-disabled:active,
+.boton.is-disabled:focus {
+  background: inherit;
+  color: inherit;
+  box-shadow: none;
+}
+
+/* Mantener foco visible cuando NO esté disabled */
+.boton:focus-visible {
+  outline: 2px solid var(--color-secundario);
+  outline-offset: 2px;
+}

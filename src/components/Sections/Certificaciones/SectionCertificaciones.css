@@ -1,0 +1,67 @@
+.empresa-container-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+}
+
+.empresa-container-3 .Body {
+    text-align: center;
+}
+
+.empresa-container-4.desktop {
+    display: none;
+}
+.empresa-container-4.mobile {
+    display: flex;
+}
+
+.empresa-container-4 {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.empresa-container-4 img {
+    width: 147px;
+}
+
+.empresa-container-4 div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.empresa-container-5 .Producto {
+    padding-top: 20px;
+    text-align: center;
+}
+
+@media (min-width: 620px) {
+    .empresa-container-4.mobile {
+        display: none;
+    }
+
+    .empresa-container-4.desktop {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .empresa-container-4 {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+   .slogan-certificaciones{
+    max-width: 1057px;
+   }
+
+    
+}

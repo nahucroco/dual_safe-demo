@@ -1,0 +1,198 @@
+
+/* Base */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 2px solid transparent;
+  transition: border-color .3s ease-in-out;
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  /* izq | centro | der */
+  align-items: center;
+  padding: 0 8px;
+  height: 76px;
+}
+
+.navbar.scrolled {
+  border-bottom-color: #e9631a;
+}
+.navlink:hover{ text-decoration: none; }
+
+
+/* >=824px: muestro links al centro y oculto hamburguesa */
+@media (min-width: 824px){
+  .icon-btn{ display: none; }              /* oculta hamburguesa */
+
+  .navbar{
+    padding-left: 32px;
+    padding-right: 32px;
+    min-height: 64px;
+  }
+
+  .navlinks{
+    display: flex;
+    flex: 1;                               /* ocupa el espacio central */
+    justify-content: center;               /* centra los links */
+    align-items: center;
+    gap: 28px;                             /* separación como la maqueta */
+    padding: 0 12px;
+    text-decoration: none;
+  }
+}
+.nav-left,
+.nav-center,
+.nav-right {
+  display: contents;
+}
+
+/* usamos celdas del grid */
+
+/* Botón hamburguesa (celda izquierda) */
+.nav-hamburger {
+  grid-column: 1;
+  justify-self: start;
+}
+
+/* Logo mobile centrado (celda central) */
+.nav-logo--mobile {
+  grid-column: 2;
+  justify-self: center;
+  display: inline-flex;
+  padding: 8px;
+}
+
+.nav-logo--mobile img {
+  height: 60px;
+}
+
+/* Logo desktop (oculto por defecto) */
+.nav-logo--desktop {
+  display: none;
+}
+
+/* Carrito (celda derecha) */
+.nav-right {
+  grid-column: 3;
+  justify-self: end;
+}
+
+/* Links ocultos por defecto (solo aparecen en desktop) */
+.navbar-links {
+  display: none;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  height: 76px;
+}
+
+/* ───── Desktop ≥824px ───── */
+@media (min-width: 824px) {
+
+  .navbar{
+    padding: 0 32px;
+  }
+
+  /* ocultar hamburguesa y logo centrado */
+  .nav-hamburger {
+    display: none;
+  }
+
+  .nav-logo--mobile {
+    display: none;
+  }
+
+  /* mostrar logo a la izquierda */
+  .nav-logo--desktop {
+    display: inline-flex;
+    grid-column: 1;
+    justify-self: start;
+    padding: 8px;
+  }
+
+  .logo-desktop{
+    height: 30px;
+  }
+  .logo-mobile{
+    height: 60px;
+  }
+  /* Por defecto (<1440): se ve logo-mobile */
+.logo-desktop {
+  display: none;
+}
+
+.logo-mobile {
+  display: block;
+}
+
+/* Desde 1440px: se ve logo-desktop */
+@media (min-width: 1440px) {
+  .logo-desktop {
+    display: block;
+  }
+
+  .logo-mobile {
+    display: none;
+  }
+}
+
+  /* links en el centro */
+  .navbar-links {
+    display: flex;
+    grid-column: 2;
+    justify-self: center;
+    align-items: center;
+  }
+
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  line-height: 1;
+  color: #111;
+  display: inline-block;
+  padding: 0 4px; /* pequeño espacio lateral */
+}
+.navbar-link {
+  position: relative;        
+  padding-top: 23.5px;
+  padding-bottom: 23.5px;
+}
+
+/* Línea inferior oculta por defecto */
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.5px;                 /* se pega al borde inferior del li */
+  width: 100%;
+  height: 7px;               /* grosor de la barra */
+  background-color: #e9b01a; /* color barra */
+  transform: scaleY(0);      /* oculta en vertical */
+  transform-origin: bottom;  /* empieza desde abajo */
+  transition: transform 0.2s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Hover: expandir la barra */
+.navbar-link:hover::after {
+  transform: scaleY(1);      /* crece hacia arriba */
+  transform-origin: bottom;
+}
+
+@media (min-width: 1440px){
+
+  .navbar{
+    padding-left: 80px;
+    padding-right: 80px;
+    min-height: 64px;
+  }
+
+}
+
+
+  
+}

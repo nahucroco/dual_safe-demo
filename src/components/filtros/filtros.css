@@ -1,0 +1,397 @@
+/* ===== FILTROS ===== */
+
+/* WRAPPER que empuja (solo mobile/tablet) */
+.nav-buscador .filters-collider {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .35s ease;
+  position: relative;
+  z-index: 1;
+  padding: 0 16px 0;
+}
+
+.nav-buscador .filters-collider.open {
+  grid-template-rows: 1fr;
+  padding-bottom: 25px;
+}
+
+.nav-buscador .filters-inner {
+  overflow: hidden;
+}
+
+/* PANEL */
+.nav-buscador .filter-sidebar {
+  display: flex;
+  padding-top: 10px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 20px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+/* GRUPO */
+.nav-buscador .filter-group {
+  border-radius: 1px;
+  border: 1px solid var(--Secundario, #F4BD03);
+  background: #FFF;
+}
+
+.nav-buscador .filter-group__head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow .15s ease, border-color .15s ease;
+  gap: 5px;
+}
+
+/* acordeón MOBILE: body por grid (no absolute) */
+.nav-buscador .filter-group__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .3s ease;
+}
+
+.nav-buscador .filter-group__body.open {
+  grid-template-rows: 1fr;
+}
+
+.nav-buscador .filter-group__inner {
+  overflow: hidden;
+}
+
+/* contenido */
+.nav-buscador .filter-search {
+  position: relative;
+  margin-top: 8px;
+}
+
+.nav-buscador .filter-search__input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #F4BD03;
+  border-radius: 3px;
+  outline: none;
+  background: #fff;
+  color: #161616;
+}
+
+.nav-buscador .filter-search__input::placeholder {
+  color: #9a9a9a;
+}
+
+.nav-buscador .clear-q {
+  position: absolute;
+  right: .25rem;
+  top: .25rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.nav-buscador .filter-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+}
+
+/* opción */
+.nav-buscador .opt {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  border-top: 0.5px solid var(--Secundario, #F4BD03);
+  cursor: pointer;
+  background: #fff;
+  user-select: none;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+
+.nav-buscador .opt input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-buscador .opt:has(input:checked) {
+  background: #F5F5E9;
+}
+
+/* chips */
+.nav-buscador .filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+}
+
+.nav-buscador .chip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+}
+
+.nav-buscador .chip.clear-all {
+  background: var(--color-primario);
+  border-color: #ffd5c2;
+}
+
+
+/* estados y extras */
+.nav-buscador .arrow {
+  display: inline-block;
+  transition: transform .3s ease;
+  transform-origin: center;
+}
+
+.nav-buscador .arrow.open {
+  transform: rotate(180deg);
+}
+
+.nav-buscador .opt[aria-disabled="true"] {
+  background: #F5F5E9;
+}
+
+.nav-buscador .opt .opt-count {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #eee;
+}
+
+.nav-buscador .filter-group.is-disabled .filter-group__head {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.nav-buscador .filter-group.is-disabled .filter-group__body {
+  pointer-events: none;
+}
+
+.filtros{
+  display: none;
+}
+
+/* ===== Desktop (≥1440px): NO empuja + popover con animación ===== */
+@media (min-width: 824px) {
+  .nav-buscador .filter-sidebar{
+    display: flex;
+    align-items: center;
+    gap: 19.4px;
+    align-self: stretch;
+  }
+  .nav-buscador  .filter-group.is-disabled.filtros  .filter-group__head {
+     opacity: unset;
+  }
+
+  /* el wrapper de filtros NO empuja en desktop */
+  .nav-buscador .filters-collider,
+  .nav-buscador .filters-collider.open {
+    grid-template-rows: auto !important;
+    padding: 0;
+  }
+
+  /* permite que los popovers se salgan del contenedor */
+  .nav-buscador .filters-inner {
+    overflow: visible !important;
+  }
+
+  /* cada grupo es ancla */
+  .nav-buscador .filter-group {
+    position: relative;
+  }
+
+  /* popover absoluto con transición simétrica abrir/cerrar */
+  .nav-buscador .filter-group__body {
+    /* anula acordeón mobile en desktop */
+    display: block !important;
+    grid-template-rows: initial !important;
+
+    position: absolute !important;
+    top: calc(100% + 6px);
+    left: 0;
+    width: max(240px, 100%);
+
+    /* estado cerrado */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    visibility: hidden;
+    pointer-events: none;
+
+    /* visual */
+    background: #fff;
+    border: 1px solid transparent;
+    /* sin línea cerrado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .12);
+    z-index: 999;
+
+    /* transiciones (abrir y cerrar) */
+    transition:
+      max-height .28s cubic-bezier(.2, .8, .2, 1),
+      opacity .18s ease,
+      transform .18s ease,
+      border-color .18s ease,
+      visibility 0s linear .28s;
+    /* oculta visibility al final del cierre */
+    will-change: max-height, opacity, transform;
+  }
+
+  .nav-buscador .filter-group__body.open {
+    max-height: 320px;
+    /* tope con scroll interno */
+    overflow: auto;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    /* visible al abrir */
+    pointer-events: auto;
+    border-color: var(--Secundario, #F4BD03);
+    transition-delay: 0s, 0s, 0s, 0s, 0s;
+  }
+
+  /* el contenido del popover no se recorta */
+  .nav-buscador .filter-group__inner {
+    overflow: visible !important;
+  }
+
+  /* ocultos en desktop: botones de filtros mobile, headers redundantes */
+  .nav-buscador .Buscador-filtros,
+  .nav-buscador .filters-desktop-head,
+  .nav-buscador .filter-sidebar__head {
+    display: none;
+  }
+
+  .nav-buscador .filter-sidebar {
+    padding-top: 0;
+  }
+}
+
+
+@media (min-width: 824px) {
+  .nav-buscador .filter-sidebar{
+    display: flex;
+    align-items: center;
+    gap: 19.4px;
+    align-self: stretch;
+  }
+  .nav-buscador  .filter-group.is-disabled.filtros  .filter-group__head {
+     opacity: unset;
+  }
+
+  /* el wrapper de filtros NO empuja en desktop */
+  .nav-buscador .filters-collider,
+  .nav-buscador .filters-collider.open {
+    grid-template-rows: auto !important;
+    padding: 0;
+  }
+
+  /* permite que los popovers se salgan del contenedor */
+  .nav-buscador .filters-inner {
+    overflow: visible !important;
+  }
+
+  /* cada grupo es ancla */
+  .nav-buscador .filter-group {
+    position: relative;
+  }
+
+  /* popover absoluto con transición simétrica abrir/cerrar */
+  .nav-buscador .filter-group__body {
+    /* anula acordeón mobile en desktop */
+    display: block !important;
+    grid-template-rows: initial !important;
+
+    position: absolute !important;
+    top: calc(100% + 6px);
+    left: 0;
+    width: max(240px, 100%);
+
+    /* estado cerrado */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    visibility: hidden;
+    pointer-events: none;
+
+    /* visual */
+    background: #fff;
+    border: 1px solid transparent;
+    /* sin línea cerrado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .12);
+    z-index: 999;
+
+    /* transiciones (abrir y cerrar) */
+    transition:
+      max-height .28s cubic-bezier(.2, .8, .2, 1),
+      opacity .18s ease,
+      transform .18s ease,
+      border-color .18s ease,
+      visibility 0s linear .28s;
+    /* oculta visibility al final del cierre */
+    will-change: max-height, opacity, transform;
+  }
+
+  .nav-buscador .filter-group__body.open {
+    max-height: 320px;
+    /* tope con scroll interno */
+    overflow: auto;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    /* visible al abrir */
+    pointer-events: auto;
+    border-color: var(--Secundario, #F4BD03);
+    transition-delay: 0s, 0s, 0s, 0s, 0s;
+  }
+
+  /* el contenido del popover no se recorta */
+  .nav-buscador .filter-group__inner {
+    overflow: visible !important;
+  }
+
+  /* ocultos en desktop: botones de filtros mobile, headers redundantes */
+  .nav-buscador .Buscador-filtros,
+  .nav-buscador .filters-desktop-head,
+  .nav-buscador .filter-sidebar__head {
+    display: none;
+  }
+
+  .nav-buscador .filter-sidebar {
+    padding-top: 0;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .nav-buscador .filter-group__body {
+    transition: none !important;
+  }
+}
+
+@media (min-width: 824px) {
+  .filtros{
+    display: block;
+  }
+  .filtros .filter-group__head{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .filtro .is-disabled button{
+    opacity: unset;
+  }
+
+}

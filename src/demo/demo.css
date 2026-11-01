@@ -1,0 +1,71 @@
+:root {
+  --demo-banner-h: 56px;
+}
+
+body {
+  padding-bottom: var(--demo-banner-h);
+}
+
+.demo-banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: var(--demo-banner-h);
+  padding: 6px 16px;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  color: #fff;
+  background: #111;
+}
+
+.demo-aviso {
+  position: fixed;
+  right: 16px;
+  bottom: calc(var(--demo-banner-h) + 12px);
+  left: 16px;
+  z-index: 10000;
+  max-width: 460px;
+  max-height: 50vh;
+  margin: 0 auto;
+  padding: 12px 16px;
+  overflow-y: auto;
+  border-radius: 10px;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 14px;
+  white-space: pre-wrap;
+  color: #111;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.3);
+}
+
+.CompraBar.is-fixed,
+.whatsapp-float {
+  bottom: calc(var(--demo-banner-h) + 16px) !important;
+}
+
+.CompraBar.is-fixed {
+  bottom: var(--demo-banner-h) !important;
+}
+
+/* Ajustes de la ficha de producto en pantallas angostas */
+@media (max-width: 768px) {
+  .Titulo-detalle-product {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .CompraDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

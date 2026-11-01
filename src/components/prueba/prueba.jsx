@@ -1,0 +1,9 @@
+export default function Prueba() {
+
+    console.log("Prueba");
+    return (
+        <div>
+            <h1>Prueba</h1>
+        </div>
+    );
+}

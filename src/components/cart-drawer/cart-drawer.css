@@ -1,0 +1,298 @@
+/* Overlay */
+.cart-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.cart-drawer.is-open {
+  /*   pointer-events: auto;
+ */
+}
+
+@media (min-width: 526px) {
+  .cart-drawer.is-open {
+    pointer-events: auto;
+  }
+}
+
+/* Backdrop (queda DETRÁS del panel y no tapa la navbar) */
+.cart-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+  opacity: 0;
+  transition: opacity .25s ease;
+  border: 0;
+  z-index: 1;
+  touch-action: none;
+}
+
+.cart-drawer.is-open .cart-drawer__backdrop {
+  inset: 76px 0 0 0;
+  opacity: 1;
+}
+
+/* Panel (por ENCIMA del backdrop) */
+.cart-drawer__panel {
+  position: absolute;
+  top: 76px;
+  /* si tu navbar ocupa 76px, mantenelo */
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100vw);
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  background: transparent;
+  z-index: 2;
+  pointer-events: auto;
+  display: flex;
+  /* ⬅️ clave */
+  flex-direction: column;
+  /* ⬅️ clave */
+}
+
+.cart-drawer.is-open .cart-drawer__panel {
+  transform: translateX(0);
+}
+
+/* Fondo degradado + layout vertical */
+.drawer-inner {
+  flex: 1 1 auto;
+  /* ⬅️ ocupa el alto disponible */
+  min-height: 0;
+  /* ⬅️ permite que hijos con overflow funcionen */
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(170deg, #FFEBE0 1.24%, #FFA774 98.76%);
+  padding: 40px 16px;
+}
+
+/* Header */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-header div {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.drawer-title {
+  margin: 0;
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.15;
+}
+
+/* Nota */
+.drawer-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 30px 30px 30px;
+}
+
+.drawer-note img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Tarjeta blanca */
+.drawer-card {
+  background: #F9F9F6;
+  border-radius: 5px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Top row de la tarjeta */
+.drawer-toprow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-toprow__qty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Separador punteado */
+.sep-dashed {
+  border: none;
+  border-top: 2px dashed #bbb;
+  /* grosor y color */
+  margin: 16px 0;
+}
+
+
+/* Lista ocupa todo el espacio */
+.drawer-list {
+  display: grid;
+  gap: 20px;
+  overflow: auto;
+  /* ⬅️ scroll sólo aquí */
+  min-height: 0;
+  flex: 1 1 auto;
+  /* ⬅️ ocupa el espacio disponible dentro de la tarjeta */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Estado vacío */
+.drawer-list.is-empty {
+  place-items: center;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.drawer-list.is-empty .Field {
+  opacity: .6;
+  text-align: center;
+}
+
+/* Ítems */
+.drawer-item {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.drawer-item .container-1 {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 1;
+}
+
+.drawer-item__img img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.drawer-item__info {
+  display: grid;
+  gap: 8px;
+}
+
+.drawer-item__name {
+  color: #000;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-item__tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drawer-item__materials {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.drawer-item__price {
+  opacity: .7;
+}
+
+.drawer-item__qtyrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drawer-item__remove {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  opacity: .7;
+}
+
+.drawer-item__remove:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.drawer-item__subtotal {
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* Footer fijo */
+.cart-drawer__footer {
+  background: #FFF;
+  border-top: 2px solid var(--Terciario, #EBEBDF);
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, .04);
+  padding: 14px 20px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.cart-drawer__footer .container-1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 328px;
+  justify-content: space-between;
+}
+
+.cart-drawer__footer .container-1 a {
+  text-decoration: none;
+  color: var(--Primario, #E9631A);
+}
+
+.cart-drawer__footer button {
+  max-width: 328px;
+}
+
+/* Scrollbar suave */
+.drawer-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.drawer-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .12);
+  border-radius: 8px;
+}
+
+@media (min-width: 824px) {
+  .drawer-inner {
+    flex: 1 1 auto;
+    /* ⬅️ ocupa el alto disponible */
+    min-height: 0;
+    /* ⬅️ permite que hijos con overflow funcionen */
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(170deg, #FFEBE0 1.24%, #FFA774 98.76%);
+    padding: 40px 30px;
+
+  }
+
+  .cart-drawer__panel {
+    width: min(520px, 100vw);
+  }
+}

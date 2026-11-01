@@ -1,0 +1,155 @@
+.SectionForm {
+    background-color: #F9F9F6;
+    padding: 60px 16px 200px 16px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input{
+    color:black;
+}
+.btn-primario {
+    width: 180px;
+}
+
+.btn-primario .Field {
+    color: #FFF;
+}
+
+.contacto-container-1 {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.contacto-container-1 p {
+    text-align: left;
+}
+
+.contacto-container-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacto-container-2 .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    max-width: 421px;
+    width: 100%;
+}
+
+.contacto-container-2 .formulario .dos-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.contacto-container-2 .formulario .campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+    width: 100%;
+}
+
+.contacto-container-2 .formulario .campo label {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.contacto-container-2 .formulario .campo input {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid var(--Terciario, #EBEBDF);
+    background: #f9f9f680;
+    display: flex;
+    padding: 13px 10px;
+    align-items: center;
+    gap: 5px;
+    align-self: stretch;
+}
+
+.contacto-container-2 .formulario .campo textarea {
+    border-radius: 3px;
+    border: 2px solid var(--Terciario, #EBEBDF);
+    background: #f9f9f680;
+    display: flex;
+    height: 214px;
+    padding: 13px 10px;
+    align-items: flex-start;
+    gap: 5px;
+    align-self: stretch;
+}
+
+.contacto-container-2 .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #FFF;
+    padding: 40px 15px;
+    border-radius: 12px;
+    align-items: center;
+    width: 100%;
+    max-width: 620px;
+}
+
+@media (min-width: 620px) {
+    .SectionForm {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contacto-container-1 {
+        max-width: 835px;
+    }
+
+    .contacto-container-2 {
+        width: 100%;
+        max-width: 620px;
+    }
+
+
+}
+
+@media (min-width: 1440px) {
+    .SectionForm {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .contacto-container-1 {
+        padding: 0;
+        width: 100%;
+        max-width: 620px;
+    }
+
+
+
+    .contacto-container-2 .formulario .dos-campos {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+
+}
+
+textarea{
+    color:black;
+}

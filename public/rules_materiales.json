@@ -1,0 +1,10 @@
+{
+  "combos": [
+  { "all": ["Cuero", "Vaqueta"], "out": ["Vaqueta"] },
+  { "all": ["Cuero", "Descarne"], "out": ["Descarne"] },
+  { "all": ["Cuero Vaqueta", "TPR"], "out": ["Vaqueta TPR"] },
+  { "all": ["Algodón", "PVC"], "out": ["Algodón PVC"] },
+  { "all": ["Poliéster", "Poliuretano"], "out": ["Poly","PU"] },
+  { "all": ["Poliéster", "Nitrilo"], "out": ["Poly","Nitrilo"] }
+  ]
+}

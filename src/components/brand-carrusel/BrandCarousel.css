@@ -1,0 +1,41 @@
+.brand-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 730px;
+  overflow: hidden;
+  padding: 6px 0;
+  height: var(--h, 60px);    /* 👈 alto del CONTENEDOR */
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.brand-track-js {
+  display: flex;
+  width: max-content;
+  height: 100%;              /* 👈 hereda altura del contenedor */
+  will-change: transform;
+  gap: 35px;
+}
+
+.brand-group-js {
+  display: flex;
+  gap: 35px;
+  flex: none;
+  height: 100%;              /* 👈 igual altura para centrar vertical */
+}
+
+.brand-item {
+  flex: none;
+  display: flex;
+  align-items: center;       /* 👈 centra verticalmente dentro del alto */
+  justify-content: center;
+  height: 100%;
+}
+
+.brand-item img {
+  width: auto;               /* mantiene proporción */
+  display: block;
+  object-fit: contain;
+  filter: saturate(.9) contrast(1.05);
+  opacity: .95;
+}

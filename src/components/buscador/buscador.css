@@ -1,0 +1,149 @@
+/* ===== BUSCADOR (solo barra/hero) ===== */
+
+/* Contenedor base: da contexto al absoluto */
+.nav-buscador {
+  position: relative;
+  z-index: 100;
+  /* asegura overlays por encima de la grilla */
+}
+
+.nav-buscador .texto-desktop {
+  display: none;
+}
+
+.Buscador {
+  display: flex;
+  padding: 30px 16px 25px 16px;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  transition: padding 0.3s ease;
+}
+
+.Buscador.abierto {
+  padding-bottom: 0;
+  /* solo mobile */
+}
+
+.Buscador-filtros {
+  border-radius: 3px;
+  border: 2px solid var(--Terciario, #EBEBDF);
+  background: #FFF;
+}
+
+.Buscador-filtros img {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* ===== Desktop (≥1440px) — solo estilos del hero/buscador ===== */
+
+
+@media (min-width: 824px) {
+
+  .nav-buscador {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 26.05%, rgba(0, 0, 0, 0.40) 53.11%), url('/assets/img/background-filtros.jpg') lightgray 50% / cover no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 30px;
+     padding: 120px 18px 40px 18px;
+  }
+   
+
+    .Buscador {
+    width:721px;
+    background: transparent;
+    padding: 0;
+    padding-bottom: 17px;
+  }
+
+  /* en desktop la barra no se “achica” por el estado abierto */
+  .Buscador.abierto {
+    padding-bottom: 25px !important;
+  }
+
+  .nav-buscador .texto-desktop {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    max-width: 492px;
+
+  }
+
+  .nav-buscador .texto-desktop .texto-1 {
+    color: #FFF;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 27.614px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .nav-buscador .texto-desktop .texto-2 {
+    color: #FFF;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 47.72px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  
+}
+
+
+@media (min-width: 1440px) {
+  .nav-buscador {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 26.05%, rgba(0, 0, 0, 0.40) 53.11%), url('/assets/img/background-filtros.jpg') lightgray 50% / cover no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 30px;
+    padding: 120px 70px 40px 70px;
+  }
+
+  .Buscador {
+    background: transparent;
+    padding: 0;
+    padding-bottom: 17px;
+  }
+
+  /* en desktop la barra no se “achica” por el estado abierto */
+  .Buscador.abierto {
+    padding-bottom: 25px !important;
+  }
+
+  .nav-buscador .texto-desktop {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    max-width: 492px;
+
+  }
+
+  .nav-buscador .texto-desktop .texto-1 {
+    color: #FFF;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 27.614px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .nav-buscador .texto-desktop .texto-2 {
+    color: #FFF;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 47.72px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+}

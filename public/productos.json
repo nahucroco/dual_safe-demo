@@ -1,0 +1,180 @@
+[
+  {
+    "id": 1,
+    "codigo": "GU-MOT-PRIM-3H",
+    "name": "Guante Moteado de Primera 3 Hilos",
+    "long_description": "Guante moteado de primera calidad para uso general. Composición algodón/políester, tejido de 3 hilos.",
+    "uso_recomendado": [
+      "Metalurgia",
+      "Logistica"
+    ],
+    "marca": "DualSafe",
+    "materials": [
+      "Cuero",
+      "Vaqueta",
+      "TPR"
+    ],
+    "categoria": "Manos",
+    "certificacion": [
+      "IRAM",
+      "ANSI",
+      "EN"
+    ],
+    "pdf_filename": "",
+    "image_filename": "guante-moteado-primera-3-hilos",
+    "images": [
+      "1.png",
+      "2.png"
+    ],
+    "image_alt": "Guante moteado de primera, tejido 3 hilos",
+    "si_activo": true,
+    "sort_order": 10
+  },
+  {
+    "id": 2,
+    "codigo": "GU-NIT-LONA-TOT",
+    "name": "Guante de Nitrilo Puño de Lona",
+    "long_description": "Guante recubierto en nitrilo de cobertura total con puño de lona reforzado. Ideal para manipulación de aceites, solventes y trabajos pesados.",
+    "uso_recomendado": [
+      "Metalurgia",
+      "Construcción",
+      "Mecánica"
+    ],
+    "marca": "DualSafe",
+    "materials": [
+      "Nitrilo"
+    ],
+    "categoria": "Manos",
+    "certificacion": [
+      "IRAM",
+      "EN"
+    ],
+    "pdf_filename": "",
+    "image_filename": "guante-nitrilo-puno-lona-total",
+    "images": [
+      "1.png",
+      "2.png"
+    ],
+    "image_alt": "Guante nitrilo con puño lona cobertura total",
+    "si_activo": true,
+    "sort_order": 20
+  },
+  {
+    "id": 3,
+    "codigo": "LEN-LIB-ECOL",
+    "name": "Lentes Libus - Ecoline",
+    "long_description": "Lentes de seguridad modelo Ecoline, con protección UV y diseño envolvente. Livianos y resistentes a impactos.",
+    "uso_recomendado": [
+      "Logistica",
+      "Metalurgia",
+      "Construcción"
+    ],
+    "marca": "Libus",
+    "materials": [
+      "Policarbonato"
+    ],
+    "categoria": "Visual",
+    "certificacion": [
+      "IRAM",
+      "ANSI"
+    ],
+    "pdf_filename": "",
+    "image_filename": "lentes-libus-ecoline",
+    "images": [
+      "1.png"
+    ],
+    "image_alt": "Lentes de seguridad Libus Ecoline",
+    "si_activo": true,
+    "sort_order": 30
+  },
+  {
+    "id": 4,
+    "codigo": "CAS-LIB-MIL-SIM",
+    "name": "Casco Libus Milenium c/ Arnés Simple",
+    "long_description": "Casco de seguridad Libus Milenium con arnés simple, ventilado y de alta resistencia al impacto.",
+    "uso_recomendado": [
+      "Construcción",
+      "Metalurgia"
+    ],
+    "marca": "Libus",
+    "materials": [
+      "Polietileno",
+      "TPR"
+    ],
+    "categoria": "Cabeza",
+    "certificacion": [
+      "IRAM",
+      "ANSI"
+    ],
+    "pdf_filename": "",
+    "image_filename": "casco-libus-milenium-arnes",
+    "images": [
+      "1.png"
+    ],
+    "image_alt": "Casco Libus Milenium con arnés simple",
+    "si_activo": true,
+    "sort_order": 40
+  },
+  {
+    "id": 5,
+    "codigo": "CAM-DES",
+    "name": "Campera Descarne",
+    "long_description": "Campera de descarne resistente al calor y proyecciones de soldadura. Diseñada para protección en trabajos de soldadura y corte.",
+    "uso_recomendado": [
+      "Soldadura",
+      "Metalurgia"
+    ],
+    "marca": "DualSafe",
+    "materials": [
+      "Cuero",
+      "descarne"
+    ],
+    "categoria": "Indumentaria",
+    "certificacion": [
+      "IRAM",
+      "ISO"
+    ],
+    "pdf_filename": "",
+    "image_filename": "campera-descarne",
+    "images": [
+      "1.png",
+      "2.png",
+      "3.png",
+      "4.png",
+      "5.png"
+    ],
+    "image_alt": "Campera de descarne para soldador",
+    "si_activo": true,
+    "sort_order": 50
+  },
+  {
+    "id": 6,
+    "codigo": "CHA-REF",
+    "name": "Chaleco Reflectivo",
+    "long_description": "Chaleco de alta visibilidad con cintas reflectivas. Cumple normas de seguridad para trabajo en vías públicas y espacios con tránsito vehicular.",
+    "uso_recomendado": [
+      "Logistica",
+      "Construcción",
+      "Seguridad vial"
+    ],
+    "marca": "DualSafe",
+    "materials": [
+      "Poliéster",
+      "Poliuretano"
+    ],
+    "categoria": "Indumentaria",
+    "certificacion": [
+      "IRAM",
+      "EN"
+    ],
+    "pdf_filename": "",
+    "image_filename": "chaleco-reflectivo",
+    "images": [
+      "1.png",
+      "2.png"
+    ],
+    "image_alt": "Chaleco reflectivo de alta visibilidad",
+    "si_activo": true,
+    "sort_order": 60
+  }
+]

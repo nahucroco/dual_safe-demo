@@ -1,0 +1,287 @@
+/* ========== CARD ========== */
+.carProducto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding-bottom: 4px;
+  border-radius: 7px;
+  border: 0.5px solid #9f9f9f78;
+  background: #FFF;
+  transition: box-shadow .25s ease;
+  position: relative;            /* stacking context */
+}
+.carProducto:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  z-index: 2;
+}
+
+/* ========== HEADER (grid: imagen + info) ========== */
+.card-header {
+  display: grid;
+  width: 160px;
+  height: 207px;                 /* altura total estable */
+  grid-template-rows: 1fr auto;  /* imagen crece, info ajusta */
+  gap: 4px;
+
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  overflow: hidden;              /* recorta el zoom de la imagen */
+}
+
+/* ========== IMAGEN ========== */
+.card-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;   /* 👈 elegí 4:3, 1:1, 3:4, etc. */
+  overflow: hidden;              /* recorta zoom interno también */
+}
+
+/* contenedores de imagen */
+.card-img-container,
+.card-img-container-hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-img-container { z-index: 1; }
+.card-img-container-hover { z-index: 2; }
+
+/* imagen base */
+.card-img {
+  position: absolute;
+  inset: 0;
+  width: 99%;
+  height: 100%;
+  object-fit: cover;     /* 👈 Figma: Fill */
+  object-position: center;
+  transition: opacity .3s ease, transform .35s ease;
+}
+
+/* estado inicial */
+.card-img-container .img-principal {
+  opacity: 1;
+  transform: scale(1);
+}
+.card-img-container-hover .img-secundaria {
+  opacity: 0;
+  transform: scale(1);
+}
+
+/* swap en hover con zoom */
+.carProducto:hover .card-img-container .img-principal {
+  opacity: 0;
+  transform: scale(1.04);
+}
+.carProducto:hover .card-img-container-hover .img-secundaria {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Overlay/badge */
+
+
+/* ========== INFO ========== */
+.card-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 4px;
+      width: 152px;
+}
+
+/* Tags con colapso animado hacia abajo */
+.card-tags {
+  display: flex;
+  padding: 3px 0;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+
+  max-height: 40px;           /* altura inicial aprox. */
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    padding 0.3s ease;
+}
+.card-tags p { margin: 0; }
+
+/* al hover se “la traga” hacia abajo */
+
+
+/* tag CVE */
+.card-tag-cve {
+  display: flex;
+  padding: 0 3px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.20);
+  border-radius: 3px;
+}
+
+/* ========== FOOTER ========== */
+.card-footer {
+  display: flex;
+  padding: 0 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Accesibilidad: reduce animación si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .card-img, .card-tags, .carProducto {
+    transition: none !important;
+  }
+}
+
+.card-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;   /* ❌ evita salto de línea */
+  gap: 4px;            /* espacio entre cada item */
+  white-space: nowrap; /* evita cortes de texto largos */
+}
+
+
+.card-tag-materials{
+  display: flex;
+align-items: center;
+gap: 3px;
+}
+.Name-Card {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;         /* máximo 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;              /* altura de cada línea */
+  min-height: unset;   /* 👈 fuerza siempre el alto de 2 líneas */
+  max-height: calc(1.3em * 2);   /* 👈 no permite crecer más de 2 */
+  white-space: normal;           /* permite cortes normales */
+}
+
+
+/* Solo si la card tiene hover real */
+.has-hover:hover .img-principal { transform: scale(1.03); opacity: 0; }
+.has-hover:hover .img-secundaria{ transform: scale(1.03); opacity: 1; }
+
+/* En cards sin hover, ni siquiera mostramos la secundaria */
+.no-hover .card-img-container-hover { display: none; }
+
+/* Estado inicial ya lo tenías: */
+.card-img-container-hover .img-secundaria { opacity: 0; transform: scale(1); }
+
+
+/* resetea el Link que envuelve la card */
+.card-link{
+  display:block;
+  color: inherit;
+  text-decoration: none;
+  cursor: default;              /* o pointer si querés mano */
+}
+.card-link:link,
+.card-link:visited,
+.card-link:hover,
+.card-link:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* por si algún <a> interno trae subrayado */
+.carProducto a{
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* card-producto.css */
+.card-skeleton .card-img-skeleton{
+  width: 99%;
+  aspect-ratio: 1 / 1;
+  background: #f2f2f2;
+  border-radius: 8px;
+}
+
+.skeleton-line{
+  height: 12px;
+  background: #cbcbcb;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.skeleton-title{ width: 70%; height: 14px; }
+.skeleton-sub{ width: 50%; }
+
+.skeleton-btn{
+  width: 152px; height: 34px; border-radius: 8px;
+  background: var(--color-primario);
+}
+
+
+@media screen and (min-width: 824px) {
+  /* Card “grande” */
+  .carProducto {
+    width: 290px;
+    height: 428px;            /* alto estable como pediste */
+    justify-content: space-between;
+    gap: 34px;
+  }
+
+  /* Header ocupa todo el ancho y define su alto */
+  .card-header {
+    width: 100%;              /* override del 160px móvil */
+    height: 350px;            /* 428 - (info+footer aprox.) */
+    grid-template-rows: 2fr auto;
+  }
+
+  /* Imagen cuadrada y llena el header */
+  .card-img-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Que la imagen base llene sin dejar 1% */
+  .card-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Info + footer usan todo el ancho interno */
+  .card-info-wrapper,
+  .card-footer {
+    width: 100%;
+    padding: 0 8px;           /* un poco más de respiro en desktop */
+  }
+
+  /* Nombre: hasta 3 líneas en desktop */
+/*   .Name-Card {
+    -webkit-line-clamp: 3;
+    min-height: calc(1.3em * 3);
+    max-height: calc(1.3em * 3);
+  } */
+
+  /* Tags: un poco más altos y con wrap si hace falta */
+  .card-tags {
+    max-height: 48px;
+    padding: 4px 0;
+    flex-wrap: wrap;          /* en desktop permitimos salto */
+    white-space: normal;      /* y cortes de texto normales */
+  }
+  .boton-agregar{
+    width: 100% !important;
+  }
+  .skeleton-btn{
+  width: 100%; height: 34px; border-radius: 8px;
+  background: var(--color-primario);
+}
+
+}

@@ -1,0 +1,61 @@
+.cards-calidad {
+    display: flex;
+    width: 308px;
+    align-items: center;
+    gap: 30px;
+}
+
+.card-calidad {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 14px;
+    background: var(--Terciario, #EBEBDF);
+    width: 308px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cards-track {
+    display: flex;
+    gap: 30px;
+    /* ajustá a tu spacing */
+}
+
+.card-calidad {
+    transition: filter 220ms ease, opacity 220ms ease, transform 220ms ease;
+    will-change: filter, opacity, transform;
+}
+
+.card-calidad.is-active {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.02);
+    /* opcional para destacar la central */
+}
+
+.card-calidad.is-blurred {
+    filter: blur(6px);
+    opacity: 0.5;
+    pointer-events: none;
+    /* evita hover/click en las no activas */
+}
+
+/* Accesibilidad: si el usuario reduce animaciones, sacamos el scale/transición */
+@media (prefers-reduced-motion: reduce) {
+    .card-calidad {
+        transition: none;
+        transform: none;
+        width: 400px;
+    }
+    .card-calidad .card-info{
+        width: 100%;
+    }
+}

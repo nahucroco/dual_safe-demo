@@ -1,0 +1,97 @@
+.politicas-container{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 31px;
+align-self: stretch;
+margin-top: 60px;
+margin-bottom: 200px;
+}
+
+.politicas-header{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 30px;
+align-self: stretch;
+}
+
+.politicas-titulo-container{
+display: flex;
+padding: 0 32px;
+flex-direction: column;
+align-items: flex-start;
+gap: 5px;
+align-self: stretch;
+}
+
+.politicas-descripcion{
+  display: flex;
+align-items: center;
+gap: 40px;
+align-self: stretch;
+}
+
+.politicas-texto-container{
+  display: flex;
+padding: 0 50px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex: 1 0 0;
+}
+
+.politicas-cambios-container{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 15px;
+align-self: stretch;
+}
+
+.politicas-cambios-header{
+  display: flex;
+padding: 0 32px;
+flex-direction: column;
+align-items: flex-start;
+gap: 5px;
+align-self: stretch;
+}
+
+.politicas-titulo ,.politicas-texto, .politicas-cambios-descripcion{
+  text-align: left !important;
+}
+
+.politicas-cambios-texto{
+  display: flex;
+padding: 0 32px;
+align-items: center;
+gap: 40px;
+align-self: stretch;
+}
+
+.politicas-cambios-descripcion{
+  display: flex;
+padding: 0 32px;
+align-items: center;
+gap: 40px;
+align-self: stretch;
+}
+
+
+.politicas-lista {
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left !important;
+  padding: 0;
+}
+
+.politicas-lista li {
+  line-height: 1.6;
+}
+
+a{
+  text-decoration: none !important;
+}

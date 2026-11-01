@@ -1,0 +1,13 @@
+.empresa{
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    position: relative;
+}
+
+.SectionCertificaciones{
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

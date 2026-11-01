@@ -1,0 +1,75 @@
+.carrusel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  padding: 0 26px;
+  gap: 20px;
+}
+
+.carrusel-dots {
+  display: flex;
+  width: 184px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.carrusel-dots img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carrusel-dots button[aria-current="page"] img {
+  opacity: 1;
+  transform: scale(1.3);
+  /* dot activo más grande */
+}
+
+.carrusel-dots button:not([aria-current="page"]) img {
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+/* Desktop ≥1440: grilla sin alturas iguales */
+@media (min-width: 1217px) {
+  .cards-viewport {
+    overflow: hidden;
+    scroll-snap-type: none;
+  }
+
+  .cards-track {
+    display: flex;
+    gap: 41px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-calidad {
+    width: 400px;
+    height: auto;
+    /* align-self: start; */
+    transform: none;
+  }
+
+  .card-calidad img{
+    width: 250px;
+  }
+
+  /* sin blur en desktop */
+  .card-calidad.is-blurred,
+  .card-calidad.is-active {
+    filter: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    width: 400px;
+  }
+
+  .carrusel {
+    display: none !important;
+  }
+
+  .cards-track::before,
+  .cards-track::after {
+    display: none;
+  }
+}

@@ -1,0 +1,98 @@
+.SectionNosotros {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-width: 328px;
+}
+
+.SectionNosotros .nosotros-img {
+  aspect-ratio: 328 / 193.81;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.SectionNosotros .nosotros-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+.Somos-DualSafe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  max-width: 620px;
+  align-items: center;
+}
+
+
+.Somos-DualSafe-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.Somos-DualSafe-info .Body {
+  text-align: left;
+}
+
+/* Tablet 2 */
+
+@media (min-width: 824px) {
+
+  .SectionNosotros {
+    flex-direction: row;
+  }
+
+  .SectionNosotros .Somos-DualSafe {
+    align-items: center;
+  }
+
+  .SectionNosotros .Somos-DualSafe .Subtitulo {
+    text-align: center;
+  }
+
+  .SectionNosotros .Body {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+  }
+
+  .SectionNosotros .Subtitulo {
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1440px) {
+  .SectionNosotros {
+    flex-direction: row;
+    background: #f9f9f680;
+    gap: 40px;
+  }
+
+  .SectionNosotros .Somos-DualSafe {
+    align-items: start;
+  }
+
+  .SectionNosotros .Somos-DualSafe p {
+    text-align: left;
+  }
+
+  .SectionNosotros .Somos-DualSafe .Subtitulo {
+    text-align: left;
+  }
+}

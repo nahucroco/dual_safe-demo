@@ -1,0 +1,27 @@
+.contacto {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.SectionForm .contacto-container-3 {
+    display: none;
+}
+
+@media (min-width: 1440px) {
+    .SectionForm {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        background-color: #f9f9f680;
+        padding: 60px 16px 200px 16px;
+    }
+
+    .SectionWhatsappMovil {
+        display: none;
+    }
+
+    .SectionForm .contacto-container-3 {
+        display: flex;
+    }
+}

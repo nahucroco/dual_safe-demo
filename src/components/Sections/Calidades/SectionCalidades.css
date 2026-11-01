@@ -1,0 +1,143 @@
+/* SectionCalidades.css — FINAL AJUSTADO */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sectionCalidades {
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width:768px) {
+  .sectionCalidades {
+    gap: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sectionCalidades {
+      width: 100%;
+  }
+  
+}
+
+/* ===== Viewport ===== */
+.cards-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  width: 100%;
+  margin-inline: auto;
+  box-sizing: border-box;
+
+  /* variables locales (relativas al contenedor) */
+  --side: 26px;
+  /* gutter mínimo deseado */
+  --gap: clamp(30px, 30vw, 60px);
+  /* espacio entre cards */
+  --cardW: clamp(300px, calc(100% - 2*var(--side)), 420px);
+  /* ancho card */
+  scrollbar-gutter: stable both-edges;
+  /* evita que aparezca/desaparezca y mueva el centro */
+  overscroll-behavior-x: contain;
+  /* evita rebotes que alteren el snap */
+}
+
+.cards-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-viewport.no-snap {
+  scroll-snap-type: none !important;
+}
+
+/* ===== Track con spacers dinámicos ===== */
+.cards-track {
+  display: flex;
+  gap: var(--gap);
+  align-items: stretch;
+  padding: 0;
+  /* 👈 sin padding lateral fijo aquí */
+  position: relative;
+}
+
+@media screen and (min-width: 1440px) {
+ .cards-track {
+ align-items: center;
+}
+  
+}
+
+/* Espaciadores que permiten centrar 1ª y última card en todos los anchos */
+.cards-track::before,
+.cards-track::after {
+  content: "";
+  flex: 0 0 max(var(--side), calc((130% - var(--cardW)) / 2));
+}
+
+/* ===== Card ===== */
+.card-calidad {
+  flex: 0 0 auto;
+  width: var(--cardW);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--Terciario, #EBEBDF);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  /* opcional: engancha mejor al soltar */
+}
+
+.card-calidad img {
+  display: block;
+  height: auto;
+  max-width: 80%;
+}
+
+.card-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== Carrusel (nav y dots) ===== */
+.carrusel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carrusel-dots {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dot {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
